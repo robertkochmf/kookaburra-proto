@@ -3,6 +3,8 @@
 ## About Kookaburra
 Kookaburra is an internal roadmapping tool. It is currently in prototyping stage. Currently testing a prototyping environment with Thoughtbot's Proteus.
 
+[View it here](http://robertkochmf.github.io/kookaburra-proto/)
+
 Contributing
 ------------
 
