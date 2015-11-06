@@ -12,7 +12,7 @@ var paths = {
   scripts: './source/assets/javascripts/**/*.js',
   scss: './source/assets/stylesheets/**/*.scss',
   images: './source/assets/images/*',
-  fonts: './source/assets/fonts/*'
+  fonts: './source/assets/fonts/**/*'
 };
 
 //Move html files to build

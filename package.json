@@ -18,6 +18,10 @@
     "name": "Robert Koch",
     "url": "http://wwwmentallyfriendly.com"
   },
+  "license": "ISC",
+  "bugs": {
+    "url": "http://github.com/robertkochmf/kookaburra-proto/issues"
+  },
   "homepage": "http://github.com/robertkochmf/kookaburra-proto",
   "dependencies": {
     "browser-sync": "~ 1.8.0",
