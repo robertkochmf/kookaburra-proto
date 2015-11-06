@@ -1,43 +1,38 @@
 var gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
-  bourbon = require('node-bourbon'),
   browsersync = require('browser-sync'),
   concat = require('gulp-concat'),
-  coffee = require('gulp-coffee'),
   deploy = require('gulp-gh-pages'),
-  haml = require('gulp-ruby-haml'),
   include = require('gulp-include'),
-  neat = require('node-neat').includePaths,
-  sass = require('gulp-ruby-sass'),
+  sass = require('gulp-sass'),
   sourcemaps = require('gulp-sourcemaps');
 
 var paths = {
-  haml: './source/views/*.haml',
+  html: './source/views/*.html',
   scripts: './source/assets/javascripts/**/*.js',
   scss: './source/assets/stylesheets/**/*.scss',
   images: './source/assets/images/*',
   fonts: './source/assets/fonts/*'
 };
 
-// Haml templates
-gulp.task('views', function () {
-  gulp.src(paths.haml)
-    .pipe(haml())
+//Move html files to build
+gulp.task('views', function(){
+  gulp.src(paths.html)
     .pipe(gulp.dest('./build'));
 });
 
-// Scss stylesheets
-gulp.task('stylesheets', function() {
+
+gulp.task('stylesheets', function () {
   return gulp.src(paths.scss)
-    .pipe(sass({
-      loadPath: [paths.scss].concat(neat),
-      "sourcemap=none": true
-    }))
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(sourcemaps.write())
     .pipe(autoprefixer())
     .pipe(gulp.dest('./build/assets/stylesheets'));
 });
 
-// Coffeescript
+
+// Scripts
 gulp.task('javascripts', function() {
   return gulp.src(paths.scripts)
     .pipe(sourcemaps.init())
@@ -46,8 +41,6 @@ gulp.task('javascripts', function() {
     .pipe(gulp.dest('./build/assets/javascripts'));
 });
 
-coffeeStream = coffee({bare: true});
-coffeeStream.on('error', function(err) {});
 
 // Copy images
 gulp.task('images', function () {
@@ -69,12 +62,12 @@ gulp.task('server', function() {
     },
     port: 4000,
     notify: false,
-    open: false
+    open: true
   });
 });
 
 gulp.task('watch', function() {
-  gulp.watch(paths.haml, ['views']);
+  gulp.watch(paths.html, ['views']);
   gulp.watch(paths.scss, ['stylesheets']);
   gulp.watch(paths.scripts, ['javascripts']);
   gulp.watch(paths.images, ['images']);
