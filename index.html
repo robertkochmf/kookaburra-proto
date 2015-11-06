@@ -1,24 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
     <meta charset='utf-8'>
-    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
-    <meta content='width=device-width, initial-scale=1' name='viewport'>
-    <title>Page Title</title>
-    <link href='assets/stylesheets/application.css' rel='stylesheet' type='text/css'>
+      <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+        <meta content='width=device-width, initial-scale=1' name='viewport'>
+          <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+          <title>Bootstrap 101 Template</title>
+          <!-- Styling -->
+          <link href='assets/stylesheets/application.css' rel='stylesheet' type='text/css'>
+            <link href='assets/fonts/font-awesome-4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src='https://code.jquery.com/jquery-2.1.1.min.js' type='text/javascript'></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src='assets/javascripts/bootstrap.min.js' type='text/javascript'></script>
+            <script src='http://rubaxa.github.io/Sortable/Sortable.js'></script>
+            <script src='assets/javascripts/app.js' type='text/javascript'></script>
+          </link>
+        </meta>
+      </meta>
+    </meta>
   </head>
   <body>
-    <div class='delete-me'>
-      <div class='container'>
-        <h1>Proteus</h1>
-        <p>
-          You're all set!
-          <a href="http://github.com/thoughtbot/proteus-node">Let's get started</a>
-          building your prototype.
-        </p>
-      </div>
+    <div class='new-card-wrapper'>
+      <form id='new-card'>
+        <textarea autofocus='true' id='card-text' maxlength='140' name='message' placeholder='Compose your card'></textarea>
+        <input id='new_submit' type='submit' value='Add Card'>
+      </form>
     </div>
-    <script src='https://code.jquery.com/jquery-2.1.1.min.js' type='text/javascript'></script>
-    <script src='assets/javascripts/application.js' type='text/javascript'></script>
+    <div id='wrap'>
+      <div id='inner'>
+        <div class='column-wrapper'>
+          <div class='list-wrapper'>
+            <div class='list' id='list-one'>
+              <div class='card-wrapper'>
+                <div class='card-outer'>
+                  <div class='card'>
+                    <div class='content'>
+                      We need to be able to name projects so that Josh can continue to build a Kookaburra.
+                    </div>
+                    <div class='menu'>
+                      <div class='colour-menu'>
+                        <a class='colour-btn'>
+                          <i class='fa fa-paint-brush'></i>
+                        </a>
+                        <ul class='colours'>
+                          <li class='green'>
+                            <a href='#' id='green-card'></a>
+                          </li>
+                          <li class='blue'>
+                            <a href='#' id='blue-card'></a>
+                          </li>
+                          <li class='yellow'>
+                            <a href='#' id='yellow-card'></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='list two' id='list-two'>
+              <div class='card-wrapper'></div>
+            </div>
+            <div class='list three' id='list-three'>
+              <div class='card-wrapper'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Column Container -->
+      <div id='footer'>
+        <btn class='add-btn'>
+          <i class='fa fa-plus'></i>
+        </btn>
+      </div>
+      <!-- Fixed Bottom Footer -->
+    </div>
+    <!-- Outer Flex Container -->
   </body>
 </html>
