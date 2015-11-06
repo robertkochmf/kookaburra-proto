@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kookaburra Roadmapping Prototype</title>
+
+    <!-- Styling -->
+    <link href="assets/stylesheets/application.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/javascripts/bootstrap.min.js"></script>
+    <script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
+    <script src="assets/javascripts/app.js"></script>
+      
+  </head>
+  <body>
+
+    <div class="new-card-wrapper">
+      <form id="new-card">
+      <textarea maxlength="140" name="message" id="card-text" placeholder="Compose your card" autofocus="true"></textarea>
+      <input type="submit" id="new_submit" value="Add Card">
+      </form>
+    </div>
+
+  <div id="wrap">
+
+      <div id="inner">
+        <div class="column-wrapper">
+          <div class="list-wrapper">
+
+            <div id="list-one" class="list">
+
+              <div class="card-wrapper">
+                <div class="card-outer">
+                  <div class="card">
+                    <div class="content">
+                      We need to be able to name projects so that Josh can continue to build a Kookaburra.
+                    </div>
+                    <div class="menu">
+                      <div class="colour-menu">
+                        <a class="colour-btn"><i class="fa fa-paint-brush"></i></a>
+                        <ul class="colours">
+                          <li class="green"><a href="#" id="green-card"></a></li>
+                          <li class="blue"><a href="#" id="blue-card"></a></li>
+                          <li class="yellow"><a href="#" id="yellow-card"></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div id="list-two" class="list two">
+              <div class="card-wrapper">
+
+              </div>
+            </div>
+
+            <div id="list-three" class="list three">
+              <div class="card-wrapper">
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!--Column Container-->
+
+      <div id="footer">
+
+          <btn class="add-btn"><i class="fa fa-plus"></i></btn>
+
+      </div><!--Fixed Bottom Footer-->
+
+
+  </div> <!--Outer Flex Container-->
+
+
+
+  </body>
+</html>
