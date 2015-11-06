@@ -13,7 +13,7 @@ var gulp = require('gulp'),
 
 var paths = {
   haml: './source/views/*.haml',
-  coffee: './source/assets/javascripts/**/*.coffee',
+  scripts: './source/assets/javascripts/**/*.js',
   scss: './source/assets/stylesheets/**/*.scss',
   images: './source/assets/images/*',
   fonts: './source/assets/fonts/*'
@@ -39,10 +39,9 @@ gulp.task('stylesheets', function() {
 
 // Coffeescript
 gulp.task('javascripts', function() {
-  return gulp.src(paths.coffee)
+  return gulp.src(paths.scripts)
     .pipe(sourcemaps.init())
     .pipe(include())
-    .pipe(coffee())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./build/assets/javascripts'));
 });
@@ -77,7 +76,7 @@ gulp.task('server', function() {
 gulp.task('watch', function() {
   gulp.watch(paths.haml, ['views']);
   gulp.watch(paths.scss, ['stylesheets']);
-  gulp.watch(paths.coffee, ['javascripts']);
+  gulp.watch(paths.scripts, ['javascripts']);
   gulp.watch(paths.images, ['images']);
   gulp.watch(paths.fonts, ['fonts']);
   gulp.watch('./build/*.html', browsersync.reload);
@@ -96,6 +95,6 @@ gulp.task('default', ['views', 'stylesheets', 'javascripts', 'images', 'fonts', 
 gulp.task('deploy', function () {
   return gulp.src("./build/**/*")
     .pipe(deploy({
-      branch: "master"
+      branch: "gh-pages"
     }));
 });

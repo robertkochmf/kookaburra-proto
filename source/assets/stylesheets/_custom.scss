@@ -1,0 +1,328 @@
+#wrap {
+    background: $gray-base;
+    margin: 0;
+    position: relative;
+    z-index: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    #inner {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    }
+
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      background: rgba(255,255,255,0.9);
+      content: '';
+      opacity: 0;
+      -webkit-transition: opacity .5s ease-out, width 0.1s 0.5s, height 0.1s 0.5s;
+      transition: opacity .5s ease-out, width 0.1s 0.5s, height 0.1s 0.5s;
+    }
+
+}
+
+body.new-card #wrap {
+  &:after {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    -webkit-transition: opacity .5s ease-out;
+    transition: opacity .5s ease-out;
+  }
+}
+
+.column-wrapper {
+
+  .list-wrapper {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: $gray-base;
+  }
+
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 300px;
+    position: relative;
+    margin: 1em 0 0 1em;
+    // background: white;
+    height: 96%;
+    padding: 0;
+    float: left;
+    border: 2px dashed;
+    border-color: darken($gray-base, 10);
+
+}
+
+.card-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 15px;
+  // background: $mf-blue;
+
+  .card-outer {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    // background: $mf-green;
+
+    &:hover {
+      .card {
+        transition: all ease-in .2s;
+        box-shadow: 1px 1px 20px 3px rgba(50, 50, 50, 0.3);
+      }
+    }
+
+    &.chosen {
+      .card {
+        opacity: .9;
+      }
+    }
+
+    &.ghost {
+      .card {
+        opacity: .2;
+      }
+
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      background-color: white;
+      box-shadow: 1px 1px 20px 0px rgba(50, 50, 50, 0.2);
+      margin-bottom: 1em;
+      padding: 15px;
+      transition: all ease-in .2s;
+
+      .content {
+        font-size: 1.25em;
+      }
+
+      .menu {
+        position: absolute;
+        width: 100%;
+        bottom: 5px;
+        left: 0;
+        opacity: 0;
+        transition: all ease-in .2s;
+
+        .colour-menu {
+          float: left;
+          margin-left: 15px;
+          width: 50%;
+          font-size: 1.25em;
+          color: red;
+
+          .colour-btn {
+            float: left;
+            width: 25px;
+            text-align: center;
+            height: 25px;
+            display: block;
+
+            &.hide {
+              display: none;
+            }
+          }
+
+          ul.colours {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            height: 30px;
+            display: block;
+            opacity: 0;
+            transition: all ease-in .2s;
+
+
+            &.open {
+              opacity: 1;
+              transition: all ease-in .2s;
+            }
+
+            li {
+              height: 25px;
+              width: 25px;
+              border-radius: 100px;
+              float: left;
+              margin-right: 5px;
+
+
+              &.green {
+                background-color: $mf-green;
+                transition: all ease-in .2s;
+
+                &:hover {
+                  background-color: darken($mf-green, 20);
+                  transition: all ease-in .2s;
+                }
+              }
+
+              &.blue {
+                background-color: $mf-blue;
+
+                &:hover {
+                  background-color: darken($mf-blue, 20);
+                  transition: all ease-in .2s;
+                }
+              }
+
+              &.yellow {
+                background-color: #F8F832;
+
+                &:hover {
+                  background-color: darken(#FDF04E, 20);
+                  transition: all ease-in .2s;
+                }
+              }
+
+              a {
+                display: block;
+                height: 100%;
+                width: 100%;
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.card-wrapper .card-outer .card:hover .menu {
+  opacity: 1;
+  transition: all ease-in .2s;
+}
+
+.green {
+   background-color: green;
+}
+
+
+#footer {
+  position: relative;
+  height: 80px;
+  color: $gray-base;
+  width: 100%;
+}
+
+.add-wrapper {
+	width: 100%;
+	height: auto;
+}
+
+.add-btn {
+	position: relative;
+	margin: 0 auto;
+  margin-top: 15px;
+	display: block;
+	border-radius: 150px;
+	height: 36px;
+	width: 140px;
+	background-color: $mf-blue;
+	font-size: 1em;
+	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.1);
+	cursor: pointer;
+	transition: all .2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.add-btn:hover {
+	transform: scale(1.1);
+	transition:  all .2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.add-btn > .fa {
+	position: relative;
+  top: 50%;
+	left: 50%;
+  transform: translate(-50%, -50%);
+	color: white;
+  padding-bottom: 4px;
+}
+
+// Form Styling
+
+body.new-card .new-card-wrapper {
+  opacity: 1;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  z-index: 999;
+}
+
+.new-card-wrapper {
+  pointer-events: all;
+  position: relative;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  z-index: -999;
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out;
+  opacity: 0;
+  display: none;
+}
+
+form {
+  position: relative;
+  border-radius: 4px;
+  width: 400px;
+  height: 180px;
+ }
+
+form textarea {
+ border-radius: 2px;
+ box-shadow: 1px 1px 20px 0px rgba(50, 50, 50, 0.2);
+ border: 0;
+ margin: 10px 0 10px 0;
+ font-family: 'Open Sans', sans-serif;
+ outline: none;
+ width: 395px;
+ height: 100px;
+ padding: 10px;
+}
+
+form span.counter {
+ float: right;
+ color: #f2f2f2;
+}
+
+
+
+form input {
+ cursor: pointer;
+ border-radius: 5px;
+ border: 0;
+ padding:10px 20px 10px 20px;
+ background-color: $mf-green;
+ color: white ;
+ float: right;
+}
